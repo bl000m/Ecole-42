@@ -6,7 +6,7 @@
 /*   By: mpagani <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:25:16 by mpagani           #+#    #+#             */
-/*   Updated: 2022/09/06 14:07:00 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/09/18 09:05:18 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strcapitalize(char *str)
 	int		lettre_min;
 	int		lettre_maj;
 
-	if (((str[0] >= 97) && (str[0] < 122)) && (str[0] != '\0'))
+	if (((str[0] >= 97) && (str[0] <= 122)) && (str[0] != '\0'))
 		str[0] -= 32;
 	i = 0;
 	while (str[i] != '\0')

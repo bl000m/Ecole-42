@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpagani <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: lcoissar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 15:07:52 by mpagani           #+#    #+#             */
-/*   Updated: 2022/09/18 08:42:46 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/09/19 17:42:45 by lcoissar          #+#    #+#             */
+/*   Updated: 2022/09/19 17:42:48 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
-	unsigned int	src_size;
 
-	src_sie = 0;
 	i = 0;
-	while (src[src_size] != '\0')
-	src_size++;
-	if (size < 1)
-		return (src_size);
-	while ((src[i] != '\0') && (i < (size - 1)))
+	while (i < n && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (src_size);
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

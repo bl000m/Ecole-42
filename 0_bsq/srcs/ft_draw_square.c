@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_draw_square.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 15:07:52 by mpagani           #+#    #+#             */
-/*   Updated: 2022/09/18 08:42:46 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/09/20 13:03:50 by mpagani           #+#    #+#             */
+/*   Updated: 2022/09/20 16:31:23 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	src_size;
+#include "bsq.h"
 
-	src_sie = 0;
-	i = 0;
-	while (src[src_size] != '\0')
-	src_size++;
-	if (size < 1)
-		return (src_size);
-	while ((src[i] != '\0') && (i < (size - 1)))
+void	ft_draw_square(char **array, t_posit *highest_s, t_elem *map_info)
+{
+	int	x;
+	int	y;
+
+	y = highest_s->y - highest_s->max;
+	while (y <= highest_s->y)
 	{
-		dest[i] = src[i];
-		i++;
+		x = highest_s->x - highest_s->max;
+		while (x <= highest_s->x)
+		{
+			array[y][x] = map_info->full;
+			x++;
+		}
+		y++;
 	}
-	dest[i] = '\0';
-	return (src_size);
 }

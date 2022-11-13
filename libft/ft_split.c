@@ -28,36 +28,52 @@ int	ft_words(char const *s, char c)
 	return (delim + 1);
 }
 
-char	**ft_split(char const *s, char c)
+int ft_single_word(char const *s, char c, int i)
 {
-	char	**result;
-	unsigned int		i;
-	unsigned int		j;
-	unsigned int		t;
-	unsigned int		nb_words;
+  while (s[i] && s[i] != c)
+    i++;
+  return (i);
+}
+
+static void   ft_free(char **s, int size)
+{
+  while (size > 0)
+  {
+    free(s[size]);
+    size--;
+  }
+  free(s);
+}
+
+char  **ft_split(char const *s, char c)
+{
+	char	        **result;
+	int		i;
+	int		j;
+	int		nb_words;
+  int    size;
 
 	i = 0;
 	j = 0;
-	t = 0;
+  size = 0;
 	nb_words = ft_words(s, c);
 	result = malloc(sizeof(*result) * nb_words + 1);
 	if (!result)
 		return (NULL);
 	while (i < nb_words)
 	{
-		while (s[j] != 'c')
-		{
-			if (i == 0 && s[j] == c)
-			{
-				result[i] = malloc(sizeof(char) * j + 1);
-				ft_strlcpy(result[i++], (char *)&s[t], j + 1);
-				t = j;
-			}
-			if (i > 0 && s[j] == c)
-				ft_strlcpy(result[i], (char *)&s[t], j);
+		while (s[j] == 'c')
 			j++;
-		}
-		i++;
+    size = ft_single_word(s, c, j);
+    result[i] = ft_substr(s, j, size);
+    if (!result[i])
+    {
+      ft_free(result, i);
+      return (NULL);
+    }
+    j += size;
+    i++;
 	}
+  result[i] = 0;
 	return (result);
 }

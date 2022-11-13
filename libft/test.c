@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	//printf("%s", ft_split(" c iao sono andat o       ", ' '));
+	printf("%d", ft_words(" c iao sono andat o       ", ' '));
 
 	return 0;
 }

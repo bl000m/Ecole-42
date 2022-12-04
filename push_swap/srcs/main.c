@@ -25,7 +25,6 @@ int	main(int argc, char **argv)
 	stack_a = create_stack_a(argc, argv);
 	if (check_error(stack_a))
 		return (0);
-	push_swap(stack_a);
 	display_list(stack_a);
 }
 
@@ -38,19 +37,22 @@ int	check_error(t_stack *stack)
 
 	runner_1 = stack;
 	runner_2 = runner_1->next;
-	while (runner_1 != NULL)
-	{
-		while (runner_2 != NULL)
-		{
-			if (runner_1->content == runner_2->content)
-			{
-				printf("error\n");
-				return (1);
-			}
-			runner_2 = runner_2->next;
-		}
-		runner_1 = runner_1->next;
-	}
+  while (runner_1 != NULL)
+  {
+    while (runner_2 != NULL)
+    {
+      printf("runner 1 content= %i\n", runner_1->content);
+      printf("runner 2 content= %i\n", runner_2->content);
+      if (runner_1->content == runner_2->content)
+      {
+        printf("error\n");
+        return (1);
+      }
+      runner_2 = runner_2->next;
+    }
+    runner_1 = runner_1->next;
+    runner_2 = runner_1->next;
+  }
 	return (0);
 }
 

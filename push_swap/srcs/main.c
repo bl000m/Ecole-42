@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:28:35 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/04 15:20:28 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/04 16:55:36 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	display_list(t_stack *head);
 t_stack	*create_stack_a(int argc, char *argv[]);
+int		check_error(t_stack *stack);
 
 int	main(int argc, char **argv)
 {
@@ -22,7 +23,35 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	stack_a = create_stack_a(argc, argv);
+	if (check_error(stack_a))
+		return (0);
+	push_swap(stack_a);
 	display_list(stack_a);
+}
+
+// to be checked again why not working and verify where to add
+// || runner_2->content > INT_MAX
+int	check_error(t_stack *stack)
+{
+	t_stack	*runner_1;
+	t_stack	*runner_2;
+
+	runner_1 = stack;
+	runner_2 = runner_1->next;
+	while (runner_1 != NULL)
+	{
+		while (runner_2 != NULL)
+		{
+			if (runner_1->content == runner_2->content)
+			{
+				printf("error\n");
+				return (1);
+			}
+			runner_2 = runner_2->next;
+		}
+		runner_1 = runner_1->next;
+	}
+	return (0);
 }
 
 t_stack	*create_stack_a(int argc, char *argv[])
@@ -42,10 +71,7 @@ t_stack	*create_stack_a(int argc, char *argv[])
 		if (!head)
 			head = temp;
 		else
-		{
-			temp->next = head;
-			head = temp;
-		}
+			ft_lstadd_back(&head, temp);
 	}
 	return (head);
 }
@@ -54,19 +80,10 @@ void	display_list(t_stack *head)
 {
 	t_stack	*ptr;
 
-	ptr = head;
-	while (ptr->next != NULL)
+	ptr = head->next;
+	while (ptr != NULL)
 	{
 		printf("%d\n", ptr->content);
 		ptr = ptr->next;
 	}
 }
-
-// int	main(void)
-// {
-// 	t_stack	*head;
-
-// 	head = NULL;
-// 	head = createlinkedlist(3);
-// 	display_list(head);
-// }

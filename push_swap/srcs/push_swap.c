@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 16:19:20 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/04 13:51:05 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/04 17:05:48 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,21 @@
 	* convert string in separated int => split string and then atoi it
 	* using gnl ?
 	* stock each int in a node of a linked list
-	* send the linked list out to the function push_swap
-
-	* 2.
-	* push_swap verify the list and:
+	* main send the linked list out to check_error functions
+	* check_error verify the list and:
 		* if no parameter => prompt back (or is the main doing that?)
 		* if not all int / arg > max_int / duplicates => display "error \n" on std error
+	* main send the linked list out to the function push_swap
+
+	* 2.
 	* considering that first node is the top of the stack
 	* first node needs to be the lower
 	* create t_list stack b empty
+	* Define a node current which will point to head.
+	* Define another node index which will point to node next to current.
+	* Compare data of current and index node.
+	* Current will point to current.
+	* Continue this process until the entire list is sorted.
 
 	* 3.
 	* create an algo for each INSTRUCTION allowded
@@ -57,5 +63,18 @@
 
 void	push_swap(t_stack *stack_a)
 {
+	t_stack	*stack_b;
+	t_stack	*current;
+	t_stack	*index;
 
+	stack_b = NULL;
+	current = stack_a;
+	index = stack_b->next;
+	while (current && index->next == NULL)
+	{
+		if (current->content > index->content)
+			s(stack_a);
+		current = current->next;
+		///...
+	}
 }

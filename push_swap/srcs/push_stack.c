@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:12:08 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/04 15:56:11 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/09 14:29:51 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,18 @@
 	=> *b = a->next
 */
 
-void	p(t_stack *a, t_stack *b)
+void	p(t_stack **from, t_stack **to)
 {
 	t_stack	*ptr;
+	t_stack	*top;
 
-	ptr = a->next;
-	ft_lstadd_front(b, a);
-	a = ptr;
+	top = *from;
+	ptr = (*from)->next;
+	if (!(*to))
+	{
+		*to = ft_lstnew(top->nb);
+	}
+	else
+		ft_lstadd_front(to, top);
+	*from = ptr;
 }

@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:15:21 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/04 15:55:51 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/08 18:24:55 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,36 @@
 
 void	rot_r(t_stack **stack)
 {
+	t_stack	*front;
+	t_stack	*back;
+	t_stack	*head;
 
+	head = *stack;
+	back = *stack;
+	front = *stack;
+	if (*stack == NULL)
+		return ;
+	while (front->next != NULL)
+	{
+		front = front->next;
+		if (front->next != NULL)
+			back = back->next;
+	}
+	if (front->next == NULL)
+	{
+		front->next = head;
+		back->next = NULL;
+	}
+	*stack = front;
 }
 
-void	rot_rr(t_stack **a, t_stack **b)
-{
+	// int	temp;
 
-}
+	// temp = *top;
+	// *top = *bottom;
+	// *bottom = *middle;
+	// *middle = temp;
+// void	rot_rr(t_stack **a, t_stack **b)
+// {
+
+// }

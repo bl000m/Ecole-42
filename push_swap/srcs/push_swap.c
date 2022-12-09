@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 16:19:20 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/04 17:05:48 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/09 14:47:17 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,89 @@
 	* ra / rb / rr (rotate => shift up)
 	* rra / rrb /rrr (reverse rotate => shift down)
 */
-
-void	push_swap(t_stack *stack_a)
+void	push_swap(t_stack **stack_a)
 {
+	if (ft_lstsize(*stack_a) == 2)
+	{
+		if ((*stack_a)->nb > (*stack_a)->next->nb)
+			s(stack_a);
+	}
+	if (ft_lstsize(*stack_a) == 3)
+		case_3(stack_a);
+	if (ft_lstsize(*stack_a) == 5 || ft_lstsize(*stack_a) == 4)
+		case_5(stack_a);
+}
+
+void	case_3(t_stack **stack_a)
+{
+	t_stack	*top;
+	t_stack	*middle;
+	t_stack	*bottom;
+
+	top = *stack_a;
+	middle = top->next;
+	bottom = middle->next;
+	if (top->nb > middle->nb && top->nb < bottom->nb && middle->nb < bottom->nb)
+		s(stack_a);
+	if (top->nb > middle->nb && top->nb > bottom->nb && middle->nb < bottom->nb)
+		r(stack_a);
+	if (top->nb > middle->nb && top->nb > bottom->nb && middle->nb > bottom->nb)
+		s(stack_a);
+	if (top->nb < middle->nb && top->nb > bottom->nb && middle->nb > bottom->nb)
+		rot_r(stack_a);
+	if (top->nb < middle->nb && top->nb < bottom->nb && middle->nb > bottom->nb)
+	{
+		s(stack_a);
+		r(stack_a);
+	}
+}
+
+void	insert(int pos, t_stack **stack_a)
+{
+	if (pos == 1)
+		(stack_a);
+	if (pos == 2)
+		s(stack_a);
+	if (pos == 3)
+	{
+		rot_r(stack_a);
+		s(stack_a);
+		r(stack_a);
+		r(stack_a);
+	}
+	if (pos == 4)
+		r(stack_a);
+}
+
+void	refill(t_stack **stack_b, t_stack **stack_a)
+{
+	int	pos;
+
+	pos = 0;
+	if (ft_lstsize(*stack_a) == 3)
+		pos = check_pos_4((*stack_b)->nb, stack_a);
+	if (ft_lstsize(*stack_a) == 4)
+		pos = check_pos_5((*stack_b)->nb, stack_a);
+	printf("(*stack_b)->nb = %i\n", (*stack_b)->nb);
+	printf("pos = %i\n", pos);
+	p(stack_b, stack_a);
+	insert(pos, stack_a);
+	printf("stack_a size = %i\n", ft_lstsize(*stack_a));
+}
+
+void	case_5(t_stack **stack_a)
+{
+	t_stack	*runner;
 	t_stack	*stack_b;
-	t_stack	*current;
-	t_stack	*index;
 
 	stack_b = NULL;
-	current = stack_a;
-	index = stack_b->next;
-	while (current && index->next == NULL)
+	runner = *stack_a;
+	while (runner && ft_lstsize(*stack_a) > 3)
 	{
-		if (current->content > index->content)
-			s(stack_a);
-		current = current->next;
-		///...
+		p(stack_a, &stack_b);
+		runner = runner->next;
 	}
+	case_3(stack_a);
+	while (ft_lstsize(stack_b) > 0)
+		refill(&stack_b, stack_a);
 }

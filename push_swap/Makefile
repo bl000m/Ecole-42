@@ -6,13 +6,13 @@
 #    By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 14:44:01 by mpagani           #+#    #+#              #
-#    Updated: 2022/12/03 18:30:28 by mpagani          ###   ########lyon.fr    #
+#    Updated: 2022/12/09 11:06:41 by mpagani          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= push_swap
 SRCS 		= main.c push_swap.c push_stack.c reverse_stack.c swap_stack.c \
-			rotate_reverse_stack.c
+			rotate_reverse_stack.c display_list.c ft_min_max.c check_pos.c
 CC 			= cc
 AR 			= ar
 RM 			= rm -f

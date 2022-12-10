@@ -46,7 +46,7 @@ int	check_error(t_stack *stack)
 		{
 			if (runner_1->nb == runner_2->nb)
 			{
-				ft_printf("error\n");
+				printf("error\n");
 				return (1);
 			}
 			runner_2 = runner_2->next;

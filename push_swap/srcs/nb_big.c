@@ -40,31 +40,20 @@ void	target_to_top(t_stack **stack, int index)
 int	find_index(t_stack **stack_a, int min, int max)
 {
 	int		index;
-	int		smallest;
-	int		smallest_index;
 	t_stack	*runner;
 
 	index = 0;
-	smallest = 0;
-	smallest_index = 0;
 	runner = *stack_a;
 	while (runner)
 	{
 		if (is_in_range(runner->nb, min, max))
-		{
-			if (runner->nb > smallest)
-			{
-				smallest = runner->nb;
-				smallest_index = index;
-			}
-		}
+        break ;
 		index++;
 		runner = runner->next;
 	}
 	if (index == stack_size(*stack_a))
 		return (-1);
-	ft_printf("smallest_index = %i\n", smallest_index);
-	return (smallest_index);
+	return (index);
 }
 
 void	order_stack_b(t_stack **stack_b)
@@ -100,11 +89,11 @@ void	case_100(t_stack **stack_a)
 	stack_b = NULL;
 
 	target_to_stack_b(stack_a, 0, 19, &stack_b);
-	// target_to_stack_b(stack_a, 20, 39, &stack_b);
-	// target_to_stack_b(stack_a, 40, 59, &stack_b);
-	// target_to_stack_b(stack_a, 60, 79, &stack_b);
-	// target_to_stack_b(stack_a, 80, 99, &stack_b);
-	ft_printf("start of list_b\n");
+	target_to_stack_b(stack_a, 20, 39, &stack_b);
+	target_to_stack_b(stack_a, 40, 59, &stack_b);
+	target_to_stack_b(stack_a, 60, 79, &stack_b);
+	target_to_stack_b(stack_a, 80, 99, &stack_b);
+	printf("start of list_b\n");
 	display_list(stack_b);
-	ft_printf("end of list_b\n");
+	printf("end of list_b\n");
 }

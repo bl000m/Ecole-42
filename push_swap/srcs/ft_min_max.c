@@ -32,20 +32,3 @@ int	ft_min(t_stack *stack)
 	}
 	return (smallest_index);
 }
-
-int	ft_max(t_stack *stack)
-{
-	int	max;
-	int	index;
-
-	max = stack->nb;
-	index = 0;
-	while (stack)
-	{
-		if (stack->nb > max)
-			break ;
-		index++;
-		stack = stack->next;
-	}
-	return (index);
-}

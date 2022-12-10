@@ -19,7 +19,7 @@ void	display_list(t_stack *head)
 	ptr = head;
 	while (ptr != NULL)
 	{
-		ft_printf("%d\n", ptr->nb);
+		printf("%d\n", ptr->nb);
 		ptr = ptr->next;
 	}
 }

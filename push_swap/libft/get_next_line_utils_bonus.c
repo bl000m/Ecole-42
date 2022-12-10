@@ -6,11 +6,11 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:37:26 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/03 15:57:02 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 12:14:01 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line_bonus.h"
 
 int	check_eol(t_list *record)
 {

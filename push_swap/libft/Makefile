@@ -6,7 +6,7 @@
 #    By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 13:34:03 by mpagani           #+#    #+#              #
-#    Updated: 2022/12/03 15:42:54 by mpagani          ###   ########lyon.fr    #
+#    Updated: 2022/12/10 12:14:26 by mpagani          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ CC    = cc
 AR    = ar
 RM    = rm -f
 FLAGS  = -Wall -Wextra -Werror
-HEADER_FILE = libft.h
+HEADER_FILE = libft.h get_next_line_bonus.h
 
 all : ${NAME}
 

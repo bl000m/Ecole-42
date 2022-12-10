@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:37:46 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/04 15:38:51 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 12:16:46 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,5 @@ void	ft_add_pattern(t_list **lst, char *buffer, int characters);
 int		ft_line_size(t_list *record);
 t_list	*ft_lstlast(t_list *lst);
 size_t	ft_strlen(const char *str);
-void	read_stock(t_list **record, int fd);
-void	compose_line(char **line, t_list *record);
-void	clean_record(t_list **record);
-void	ft_free_list(t_list *record);
 
 #endif

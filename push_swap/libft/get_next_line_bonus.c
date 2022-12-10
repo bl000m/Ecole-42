@@ -6,11 +6,11 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:37:22 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/03 15:51:42 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 12:14:06 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {

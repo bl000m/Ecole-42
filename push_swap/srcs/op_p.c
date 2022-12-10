@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_list.c                                     :+:      :+:    :+:   */
+/*   op_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 13:05:21 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/10 12:41:52 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/12/03 18:12:08 by mpagani           #+#    #+#             */
+/*   Updated: 2022/12/10 11:34:43 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	display_list(t_stack *head)
+/*
+	take the first node of a and set it as the first in b that means:
+	=> point the head of b to first node in a
+	=> a->next = b.first
+	=> *a = a->next
+	=> *b = a->next
+*/
+
+void	p(t_stack **from, t_stack **to)
 {
 	t_stack	*ptr;
+	t_stack	*top;
 
-	ptr = head;
-	while (ptr != NULL)
+	top = *from;
+	ptr = (*from)->next;
+	if (!(*to))
 	{
-		ft_printf("%d\n", ptr->nb);
-		ptr = ptr->next;
+		*to = stack_new(top->nb);
 	}
+	else
+		stack_add_front(to, top);
+	*from = ptr;
 }

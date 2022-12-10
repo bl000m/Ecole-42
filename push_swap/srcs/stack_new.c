@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_list.c                                     :+:      :+:    :+:   */
+/*   stack_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 13:05:21 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/10 12:41:52 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/12/10 11:32:14 by mpagani           #+#    #+#             */
+/*   Updated: 2022/12/10 11:35:24 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	display_list(t_stack *head)
+t_stack	*stack_new(int nb)
 {
-	t_stack	*ptr;
+	t_stack	*new_elem;
 
-	ptr = head;
-	while (ptr != NULL)
-	{
-		ft_printf("%d\n", ptr->nb);
-		ptr = ptr->next;
-	}
+	new_elem = malloc(sizeof(*new_elem));
+	if (!new_elem)
+		return (NULL);
+	new_elem->nb = nb;
+	new_elem->next = NULL;
+	return (new_elem);
 }

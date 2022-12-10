@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_list.c                                     :+:      :+:    :+:   */
+/*   stack_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 13:05:21 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/10 12:41:52 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/12/10 10:37:56 by mpagani           #+#    #+#             */
+/*   Updated: 2022/12/10 10:39:46 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	display_list(t_stack *head)
+int	stack_size(t_stack *stack)
 {
-	t_stack	*ptr;
+	int	i;
 
-	ptr = head;
-	while (ptr != NULL)
+	i = 0;
+	while (stack)
 	{
-		ft_printf("%d\n", ptr->nb);
-		ptr = ptr->next;
+		stack = stack->next;
+		i++;
 	}
+	return (i);
 }

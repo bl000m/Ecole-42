@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_list.c                                     :+:      :+:    :+:   */
+/*   swap_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 13:05:21 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/10 12:41:52 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/12/03 18:09:23 by mpagani           #+#    #+#             */
+/*   Updated: 2022/12/09 12:04:57 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	display_list(t_stack *head)
+void	s(t_stack **stack)
 {
-	t_stack	*ptr;
+	int		temp;
 
-	ptr = head;
-	while (ptr != NULL)
-	{
-		ft_printf("%d\n", ptr->nb);
-		ptr = ptr->next;
-	}
+	temp = (*stack)->nb;
+	(*stack)->nb = (*stack)->next->nb;
+	(*stack)->next->nb = temp;
 }

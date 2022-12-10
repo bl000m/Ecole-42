@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:28:35 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/08 09:34:48 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 12:42:02 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ int	check_error(t_stack *stack)
 
 	runner_1 = stack;
 	runner_2 = runner_1->next;
-	// if (ft_lstsize(stack) == 1 || ft_lstsize(stack) == 0)
-	// 	return ;
+	if (stack_size(stack) == 1)
+		return (0);
 	while (runner_1->next != NULL)
 	{
 		while (runner_2 != NULL)
 		{
 			if (runner_1->nb == runner_2->nb)
 			{
-				printf("error\n");
+				ft_printf("error\n");
 				return (1);
 			}
 			runner_2 = runner_2->next;
@@ -75,9 +75,7 @@ t_stack	*create_stack_a(int argc, char *argv[])
 		if (!head)
 			head = temp;
 		else
-			ft_lstadd_back(&head, temp);
+			stack_add_back(&head, temp);
 	}
 	return (head);
 }
-
-

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   op_r.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:17:28 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 13:01:34 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/12/03 18:13:55 by mpagani           #+#    #+#             */
+/*   Updated: 2022/12/13 10:11:39 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-size_t	ft_strlen(const char *str)
+void	r(t_stack **stack, char choice)
 {
-	size_t	i;
+	t_stack	*runner;
+	int		first;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	runner = *stack;
+	first = runner->nb;
+	if (!runner || !runner->next)
+		return ;
+	while (runner->next != NULL)
+	{
+		runner->nb = runner->next->nb;
+		runner = runner->next;
+	}
+	runner->nb = first;
+	ft_printf("r%c\n", choice);
 }

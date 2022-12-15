@@ -6,76 +6,69 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:28:35 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/10 12:42:02 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/15 15:12:05 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	display_list(t_stack *head);
-t_stack	*create_stack_a(int argc, char *argv[]);
-int		check_error(t_stack *stack);
+
+
+void	ft_free_all(char **result, int max)
+{
+	int	i;
+
+	i = 0;
+	while (i < max)
+		free(result[i++]);
+	free(result);
+	return ;
+}
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-
-	if (argc < 2)
-		return (0);
-	stack_a = create_stack_a(argc, argv);
-	if (check_error(stack_a))
-		return (0);
-	push_swap(&stack_a);
-	display_list(stack_a);
-}
-
-// verify where to add || runner_2->nb > INT_MAX
-// verify stack_size = 0 || 1
-int	check_error(t_stack *stack)
-{
-	t_stack	*runner_1;
-	t_stack	*runner_2;
-
-	runner_1 = stack;
-	runner_2 = runner_1->next;
-	if (stack_size(stack) == 1)
-		return (0);
-	while (runner_1->next != NULL)
-	{
-		while (runner_2 != NULL)
-		{
-			if (runner_1->nb == runner_2->nb)
-			{
-				ft_printf("error\n");
-				return (1);
-			}
-			runner_2 = runner_2->next;
-		}
-		runner_1 = runner_1->next;
-		runner_2 = runner_1->next;
-	}
-	return (0);
-}
-
-t_stack	*create_stack_a(int argc, char *argv[])
-{
-	t_stack	*head;
-	t_stack	*temp;
+	int		n_arg;
 	int		i;
+	int		is_free;
 
 	i = 1;
-	head = NULL;
+	n_arg = 0;
+	is_free = 0;
+	if (spaces(argv[i]))
+	{
+		argv = ft_split(argv[i], ' ');
+		argc = arr_len(argv);
+		is_free = 1;
+	}
+	else
+	{
+		argv++;
+		argc--;
+	}
+	if (argc <= 2)
+		return (0);
+	if (!check_input(argv))
+		exit_error();
+	stack_a = create_stack(argc, argv);
+	if (is_free)
+		ft_free_all(argv, argc);
+	if (!check_duplicate(stack_a))
+		exit_error();
+	push_swap(&stack_a);
+}
+
+t_stack	*create_stack(int argc, char *argv[])
+{
+	t_stack	*stack;
+	int		i;
+
+	i = 0;
+	stack = NULL;
 	while (i < argc)
 	{
-		temp = malloc(sizeof(temp));
-		if (!temp)
-			return (NULL);
-		temp->nb = ft_atoi(argv[i++]);
-		temp->next = NULL;
-		if (!head)
-			head = temp;
-		else
-			stack_add_back(&head, temp);
+		stack_add_back(&stack, stack_new(ft_atoi(argv[i])));
+		i++;
 	}
-	return (head);
+	return (stack);
 }

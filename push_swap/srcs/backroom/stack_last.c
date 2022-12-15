@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   stack_last.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:17:28 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 13:01:34 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/12/10 11:21:24 by mpagani           #+#    #+#             */
+/*   Updated: 2022/12/13 10:14:07 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-size_t	ft_strlen(const char *str)
+t_stack	*stack_last(t_stack *stack)
 {
-	size_t	i;
+	t_stack	*ptr;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	ptr = stack;
+	if (ptr == NULL)
+		return (NULL);
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+	return (ptr);
 }

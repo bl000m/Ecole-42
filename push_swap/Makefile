@@ -6,15 +6,18 @@
 #    By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 14:44:01 by mpagani           #+#    #+#              #
-#    Updated: 2022/12/10 12:37:36 by mpagani          ###   ########lyon.fr    #
+#    Updated: 2022/12/15 13:08:59 by mpagani          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= push_swap
-SRCS 		= main.c push_swap.c op_s.c op_r.c op_p.c \
-			op_rr.c display_list.c ft_min_max.c check_pos.c \
-			nb_small.c nb_big.c stack_size.c stack_add_front.c \
-			stack_add_back.c stack_last.c stack_new.c
+SRCS 		= main.c push_swap.c ./operations/op_s.c ./operations/op_r.c \
+			./operations/op_p.c ./operations/op_rr.c \
+			./backroom/stack_size.c ./backroom/stack_add_front.c ./backroom/stack_free.c \
+			./backroom/stack_add_back.c ./backroom/stack_last.c ./backroom/stack_new.c \
+			./backroom/arr_len.c \
+			./find_move_target/moving_target.c ./find_move_target/find_target.c \
+			./find_move_target/find_min_max.c ./error/check_error.c ./error/small_checking.c
 CC 			= cc
 AR 			= ar
 RM 			= rm -f
@@ -24,13 +27,11 @@ LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 BUILD_DIR	= build
 OBJS 		= $(SRCS:%.c=$(BUILD_DIR)/%.o)
-CFLAGS 		= -Wall -Werror -Wextra
+CFLAGS 		= -Wall -Werror -Wextra -ggdb3
 HEADER_FILE = push_swap.h
 
 all: $(NAME)
 
-#$(AR) -rcs $(NAME) $(OBJS)
-#	@echo "Linking $@"
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $^ -o $@
 	@echo "Done!"

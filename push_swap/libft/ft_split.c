@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:52:20 by mpagani           #+#    #+#             */
-/*   Updated: 2022/11/18 08:56:43 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/15 13:24:28 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_words(char const *s, char c)
 	return (words);
 }
 
-static void	ft_free_all(char **result)
+void	ft_free_all(char **result)
 {
 	int	i;
 

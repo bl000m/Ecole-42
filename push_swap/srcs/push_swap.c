@@ -104,22 +104,24 @@ void	case_100(t_stack **stack_a)
 void	case_500(t_stack **stack_a)
 {
 	t_stack	*stack_b;
-	int		min;
-	int		max;
-	int		delta;
+	int	size;
+	int	i;
+	int	j;
 
-	min = ft_min_value(*stack_a);
-	max = ft_max_value(*stack_a);
-	delta = max - min;
-	stack_b = NULL;
-	if (already_ordered(stack_a))
-		return ;
-	while (min < (max - (delta / 11) * 2))
+	i = 0;
+	while (already_ordered(*stack_a))
 	{
-		target_to_b(stack_a, min, (min + delta / 11), &stack_b);
-		min += delta / 11;
+		size = ft_lstsize(*stack_a);
+		j = -1;
+		while (++j < size)
+		{
+			if (((*stack_a)->nb >> i) & 1)
+				r(stack_a, 'a');
+			else
+				p(stack_a, stack_b, 'b');
+		}
+		while (stack_size(stack_b))
+      p(stack_b, stack_a, 'a');
+		i++;
 	}
-	target_to_b(stack_a, min, max, &stack_b);
-	highest_to_a(&stack_b, stack_a);
-	stack_free(&stack_b);
 }

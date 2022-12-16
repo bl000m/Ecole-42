@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 09:05:11 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/13 10:13:03 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 16:24:31 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,46 @@ int	ft_max_value(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max);
+}
+
+int	how_much_lower(int *indexes, int nb, int size)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (i < size)
+	{
+		if (indexes[i++] < nb)
+			count++;
+	}
+	return (count);
+}
+
+void	replace_by_index(t_stack **stack)
+{
+	t_stack	*runner;
+	int		*indexes;
+	int		size;
+	int		i;
+
+	i = 0;
+	size = stack_size(*stack);
+	indexes = malloc(sizeof(*indexes) * size);
+	if (indexes == NULL)
+		return ;
+	runner = *stack;
+	while (runner)
+	{
+		indexes[i++] = runner->nb;
+		runner = runner->next;
+	}
+	runner = *stack;
+	while (runner)
+	{
+		runner->nb = how_much_lower(indexes, runner->nb, size);
+		runner = runner->next;
+	}
+	free(indexes);
 }

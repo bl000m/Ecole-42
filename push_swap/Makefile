@@ -6,7 +6,7 @@
 #    By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 14:44:01 by mpagani           #+#    #+#              #
-#    Updated: 2022/12/15 13:08:59 by mpagani          ###   ########lyon.fr    #
+#    Updated: 2022/12/16 17:16:14 by mpagani          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS 		= main.c push_swap.c ./operations/op_s.c ./operations/op_r.c \
 			./backroom/stack_add_back.c ./backroom/stack_last.c ./backroom/stack_new.c \
 			./backroom/arr_len.c \
 			./find_move_target/moving_target.c ./find_move_target/find_target.c \
-			./find_move_target/find_min_max.c ./error/check_error.c ./error/small_checking.c
+			./find_move_target/find_min_max.c \
+			./error/check_error.c ./error/small_checking.c
 CC 			= cc
 AR 			= ar
 RM 			= rm -f
@@ -27,7 +28,7 @@ LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 BUILD_DIR	= build
 OBJS 		= $(SRCS:%.c=$(BUILD_DIR)/%.o)
-CFLAGS 		= -Wall -Werror -Wextra -ggdb3
+CFLAGS 		= -Wall -Werror -Wextra
 HEADER_FILE = push_swap.h
 
 all: $(NAME)

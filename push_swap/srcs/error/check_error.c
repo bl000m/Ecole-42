@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:09:20 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 11:50:24 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/15 16:21:16 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_input(char **argv)
 	int	zeros;
 
 	zeros = 0;
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		if (!is_number(argv[i]) || !is_overflow(argv[i]))

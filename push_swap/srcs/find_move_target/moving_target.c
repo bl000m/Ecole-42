@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:21:33 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/13 10:36:40 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 17:21:29 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,14 @@ void	highest_to_a(t_stack **stack_b, t_stack **stack_a)
 		index = ft_max(*stack_b);
 		target_to_top(stack_b, index, 'b');
 		p(stack_b, stack_a, 'a');
+	}
+}
+
+void	back_to_a(t_stack **stack_b, t_stack **stack_a, int count)
+{
+	while (count > 0)
+	{
+		p(stack_b, stack_a, 'a');
+		count--;
 	}
 }

@@ -6,38 +6,21 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:28:35 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 15:12:05 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 17:18:47 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-
-void	ft_free_all(char **result, int max)
-{
-	int	i;
-
-	i = 0;
-	while (i < max)
-		free(result[i++]);
-	free(result);
-	return ;
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	int		n_arg;
-	int		i;
 	int		is_free;
 
-	i = 1;
-	n_arg = 0;
 	is_free = 0;
-	if (spaces(argv[i]))
+	if (spaces(argv[1]))
 	{
-		argv = ft_split(argv[i], ' ');
+		argv = ft_split(argv[1], ' ');
 		argc = arr_len(argv);
 		is_free = 1;
 	}
@@ -52,7 +35,7 @@ int	main(int argc, char **argv)
 		exit_error();
 	stack_a = create_stack(argc, argv);
 	if (is_free)
-		ft_free_all(argv, argc);
+		array_free(argv, argc);
 	if (!check_duplicate(stack_a))
 		exit_error();
 	push_swap(&stack_a);

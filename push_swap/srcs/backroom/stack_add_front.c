@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:53:20 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 14:46:25 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 10:14:03 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	stack_add_front(t_stack **stack, t_stack *new)
 		return ;
 	if (*stack == NULL)
 	{
-		new->next = NULL;
 		*stack = new;
 		return ;
 	}

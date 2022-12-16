@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 16:19:20 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 15:11:11 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 17:23:19 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,8 @@ void	case_5(t_stack **stack_a)
 	}
 	case_3(stack_a);
 	while (stack_size(stack_b) > 0)
-	{
 		p(&stack_b, stack_a, 'a');
-	}
+	stack_free(&stack_b);
 }
 
 void	case_100(t_stack **stack_a)
@@ -101,27 +100,49 @@ void	case_100(t_stack **stack_a)
 	stack_free(&stack_b);
 }
 
+void	display_list(t_stack *head)
+{
+	t_stack	*ptr;
+
+	ptr = head;
+	while (ptr)
+	{
+		ft_printf("%d\n", ptr->nb);
+		ptr = ptr->next;
+	}
+}
+
 void	case_500(t_stack **stack_a)
 {
 	t_stack	*stack_b;
-	int	size;
-	int	i;
-	int	j;
+	int		size;
+	int		i;
+	int		j;
+	int		count;
 
 	i = 0;
-	while (already_ordered(*stack_a))
+	count = 0;
+	replace_by_index(stack_a);
+	while (!already_ordered(stack_a))
 	{
-		size = ft_lstsize(*stack_a);
-		j = -1;
-		while (++j < size)
+		size = stack_size(*stack_a);
+		j = 0;
+		while (j < size)
 		{
 			if (((*stack_a)->nb >> i) & 1)
 				r(stack_a, 'a');
 			else
-				p(stack_a, stack_b, 'b');
+			{
+				p(stack_a, &stack_b, 'b');
+				count++;
+			}
+			j++;
 		}
-		while (stack_size(stack_b))
-      p(stack_b, stack_a, 'a');
+		while (count > 0)
+		{
+			p(&stack_b, stack_a, 'a');
+			count--;
+		}
 		i++;
 	}
 }

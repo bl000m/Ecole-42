@@ -17,7 +17,7 @@ size_t	arr_len(char **str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i] != NULL)
 		i++;
 	return (i);
 }

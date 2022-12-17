@@ -60,9 +60,7 @@ int	ft_min_value(t_stack *stack)
 {
 	int	min;
 	int	index;
-	int	smallest_index;
 
-	smallest_index = 0;
 	min = stack->nb;
 	index = 0;
 	while (stack)
@@ -70,7 +68,6 @@ int	ft_min_value(t_stack *stack)
 		if (stack->nb < min)
 		{
 			min = stack->nb;
-			smallest_index = index;
 		}
 		index++;
 		stack = stack->next;
@@ -82,18 +79,13 @@ int	ft_max_value(t_stack *stack)
 {
 	int	max;
 	int	index;
-	int	highest_index;
 
-	highest_index = 0;
 	max = stack->nb;
 	index = 0;
 	while (stack)
 	{
 		if (stack->nb > max)
-		{
 			max = stack->nb;
-			highest_index = index;
-		}
 		index++;
 		stack = stack->next;
 	}

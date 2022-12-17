@@ -48,12 +48,10 @@ void	target_to_top(t_stack **stack, int index, char choice)
 void	order_stack_b(t_stack **stack_b)
 {
 	int	index_min;
-	int	index_max;
 
 	if (!(*stack_b))
 		return ;
 	index_min = ft_min(*stack_b);
-	index_max = ft_max(*stack_b);
 	target_to_top(stack_b, index_min, 'b');
 }
 

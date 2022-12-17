@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 09:48:17 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 18:15:23 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/17 11:46:39 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,23 @@ int	find_index(t_stack **stack_a, int min, int max)
 	if (top_index == -1 && bottom_index == -1)
 		return (-1);
 	return (index);
+}
+
+void	scan_a(t_stack **stack_a, t_stack **stack_b, int *i, int *count)
+{
+	int	size;
+	int	j;
+
+	j = -1;
+	size = stack_size(*stack_a);
+	while (++j < size)
+	{
+		if (((*stack_a)->nb >> *i) & 1)
+			r(stack_a, 'a');
+		else
+		{
+			p(stack_a, stack_b, 'b');
+			(*count)++;
+		}
+	}
 }

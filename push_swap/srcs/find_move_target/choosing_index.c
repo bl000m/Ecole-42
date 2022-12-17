@@ -1,23 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_len.c                                          :+:      :+:    :+:   */
+/*   choosing_index.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 13:06:16 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/15 16:01:13 by mpagani          ###   ########lyon.fr   */
+/*   Created: 2022/12/17 12:24:24 by mpagani           #+#    #+#             */
+/*   Updated: 2022/12/17 13:32:27 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-size_t	arr_len(char **str)
+void	index_top(t_stack **stack, int index, char choice)
 {
-	size_t	i;
+	while (index > 0)
+	{
+		r(stack, choice);
+		index--;
+	}
+}
+
+void	index_bottom(t_stack **stack, int index, char choice)
+{
+	while (index < stack_size(*stack))
+	{
+		rr(stack, choice);
+		index++;
+	}
+}
+
+int	how_much_lower(int *indexes, int nb, int size)
+{
+	int	i;
+	int	count;
 
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	count = 0;
+	while (i < size)
+	{
+		if (indexes[i++] < nb)
+			count++;
+	}
+	return (count);
 }

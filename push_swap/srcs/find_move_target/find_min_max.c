@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 09:05:11 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/16 16:24:31 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/17 13:35:11 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ int	ft_min_value(t_stack *stack)
 	while (stack)
 	{
 		if (stack->nb < min)
-		{
 			min = stack->nb;
-		}
 		index++;
 		stack = stack->next;
 	}
@@ -90,21 +88,6 @@ int	ft_max_value(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max);
-}
-
-int	how_much_lower(int *indexes, int nb, int size)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (i < size)
-	{
-		if (indexes[i++] < nb)
-			count++;
-	}
-	return (count);
 }
 
 void	replace_by_index(t_stack **stack)

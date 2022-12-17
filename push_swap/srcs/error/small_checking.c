@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:14:17 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/13 17:53:57 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/17 12:31:29 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ int	spaces(char *c)
 	while (c[i])
 	{
 		if (c[i] == ' ')
+		{
 			return (1);
+		}
 		i++;
 	}
 	return (0);

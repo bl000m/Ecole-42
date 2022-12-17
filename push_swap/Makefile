@@ -6,7 +6,7 @@
 #    By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 14:44:01 by mpagani           #+#    #+#              #
-#    Updated: 2022/12/16 17:16:14 by mpagani          ###   ########lyon.fr    #
+#    Updated: 2022/12/17 12:25:53 by mpagani          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS 		= main.c push_swap.c ./operations/op_s.c ./operations/op_r.c \
 			./backroom/stack_add_back.c ./backroom/stack_last.c ./backroom/stack_new.c \
 			./backroom/arr_len.c \
 			./find_move_target/moving_target.c ./find_move_target/find_target.c \
-			./find_move_target/find_min_max.c \
+			./find_move_target/find_min_max.c ./find_move_target/choosing_index.c\
 			./error/check_error.c ./error/small_checking.c
 CC 			= cc
 AR 			= ar

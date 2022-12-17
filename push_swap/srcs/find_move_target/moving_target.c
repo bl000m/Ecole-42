@@ -6,7 +6,7 @@
 /*   By: mpagani <mpagani@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:21:33 by mpagani           #+#    #+#             */
-/*   Updated: 2022/12/16 17:21:29 by mpagani          ###   ########lyon.fr   */
+/*   Updated: 2022/12/17 13:38:04 by mpagani          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,9 @@ void	target_to_top(t_stack **stack, int index, char choice)
 		return ;
 	}
 	else if ((stack_size(*stack) - index) > (stack_size(*stack) / 2))
-	{
-		while (index > 0)
-		{
-			r(stack, choice);
-			index--;
-		}
-	}
+		index_top(stack, index, choice);
 	else if ((stack_size(*stack) - index) <= (stack_size(*stack) / 2))
-	{
-		while (index < stack_size(*stack))
-		{
-			rr(stack, choice);
-			index++;
-		}
-	}
+		index_bottom(stack, index, choice);
 }
 
 void	order_stack_b(t_stack **stack_b)
